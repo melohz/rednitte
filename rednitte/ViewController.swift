@@ -14,14 +14,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var swipeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-         Do any additional setup after loading the view.
-        let testObject = PFObject(className: "Testing")
-        testObject["foo"] = "bar"
-        testObject.saveInBackground(block: {(success, error) in
-            print("Object has been saved")
-        })
+            
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(gestureRecognizer:)))
+        swipeLabel.addGestureRecognizer(gesture)
+        
     }
-
-
+    
+    @objc func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
+        let labelPoint = gestureRecognizer.translation(in: view)
+        swipeLabel.center = CGPoint(x: view.bounds.width / 2 + labelPoint.x, y: view.bounds.height / 2 + labelPoint.y)
+        
+        print(swipeLabel.center.x)
+    }
 }
-
