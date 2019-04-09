@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Parse
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var swipeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+         Do any additional setup after loading the view.
+        let testObject = PFObject(className: "Testing")
+        testObject["foo"] = "bar"
+        testObject.saveInBackground(block: {(success, error) in
+            print("Object has been saved")
+        })
     }
 
 

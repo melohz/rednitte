@@ -14,6 +14,7 @@
 		5CFF4FA9225C1AB600BCA56A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFF4FA7225C1AB600BCA56A /* LaunchScreen.storyboard */; };
 		5CFF4FB4225C1AB600BCA56A /* rednitteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF4FB3225C1AB600BCA56A /* rednitteTests.swift */; };
 		5CFF4FBF225C1AB600BCA56A /* rednitteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF4FBE225C1AB600BCA56A /* rednitteUITests.swift */; };
+		9F2D95C7906706ED4B899487 /* Pods_rednitte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE7FFD3EBA16A92C614706AB /* Pods_rednitte.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,9 @@
 		5CFF4FBA225C1AB600BCA56A /* rednitteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rednitteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFF4FBE225C1AB600BCA56A /* rednitteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rednitteUITests.swift; sourceTree = "<group>"; };
 		5CFF4FC0225C1AB600BCA56A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2A3664465B185B32085F4F7 /* Pods-rednitte.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rednitte.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rednitte/Pods-rednitte.debug.xcconfig"; sourceTree = "<group>"; };
+		B65C804C7163057681D89FC1 /* Pods-rednitte.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rednitte.release.xcconfig"; path = "Pods/Target Support Files/Pods-rednitte/Pods-rednitte.release.xcconfig"; sourceTree = "<group>"; };
+		DE7FFD3EBA16A92C614706AB /* Pods_rednitte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rednitte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2D95C7906706ED4B899487 /* Pods_rednitte.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		417B781D711482DBDB7A2D05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2A3664465B185B32085F4F7 /* Pods-rednitte.debug.xcconfig */,
+				B65C804C7163057681D89FC1 /* Pods-rednitte.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5CFF4F92225C1AB500BCA56A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +95,8 @@
 				5CFF4FB2225C1AB600BCA56A /* rednitteTests */,
 				5CFF4FBD225C1AB600BCA56A /* rednitteUITests */,
 				5CFF4F9C225C1AB500BCA56A /* Products */,
+				417B781D711482DBDB7A2D05 /* Pods */,
+				7AB51B2B7527A999C98BF346 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +141,14 @@
 			path = rednitteUITests;
 			sourceTree = "<group>";
 		};
+		7AB51B2B7527A999C98BF346 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE7FFD3EBA16A92C614706AB /* Pods_rednitte.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CFF4FC3225C1AB600BCA56A /* Build configuration list for PBXNativeTarget "rednitte" */;
 			buildPhases = (
+				A8A7CB724EB5A1A65336BE1A /* [CP] Check Pods Manifest.lock */,
 				5CFF4F97225C1AB500BCA56A /* Sources */,
 				5CFF4F98225C1AB500BCA56A /* Frameworks */,
 				5CFF4F99225C1AB500BCA56A /* Resources */,
+				4B3405770DB62EDB94AA5B15 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,6 +276,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B3405770DB62EDB94AA5B15 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-rednitte/Pods-rednitte-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-rednitte/Pods-rednitte-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8A7CB724EB5A1A65336BE1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-rednitte-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5CFF4F97225C1AB500BCA56A /* Sources */ = {
@@ -430,6 +497,7 @@
 		};
 		5CFF4FC4225C1AB600BCA56A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A3664465B185B32085F4F7 /* Pods-rednitte.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +516,7 @@
 		};
 		5CFF4FC5225C1AB600BCA56A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B65C804C7163057681D89FC1 /* Pods-rednitte.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

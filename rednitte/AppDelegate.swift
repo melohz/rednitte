@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let config = ParseClientConfiguration(block: { (theConfig) in
+            // config keys come from Heroku setting page
+            theConfig.applicationId = "rednitteapplication"
+            theConfig.clientKey = "rednitteisthecloneoftinder"
+            theConfig.server = "http://rednitte.herokuapp.com/parse"
+            })
+        
+        Parse.initialize(with: config)
+        
+        // parse-dashboard --dev --appId rednitteapplication --masterKey rednitteisthecloneoftinder --serverURL "http://rednitte.herokuapp.com/parse"
+        
+        
         return true
     }
 
