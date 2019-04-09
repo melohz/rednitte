@@ -10,20 +10,28 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var swipeLabel: UILabel!
+    
+    var displayUserId = ""
+    
+    @IBOutlet weak var matchImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(gestureRecognizer:)))
-        swipeLabel.addGestureRecognizer(gesture)
+        matchImageView.addGestureRecognizer(gesture)
+        
+        updateImage()
     }
     
+    @IBAction func logoutTapped(_ sender: Any) {
+        PFUser.logOut()
+        performSegue(withIdentifier: "logoutSegue", sender: nil)
+    }
     @objc func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
         let labelPoint = gestureRecognizer.translation(in: view)
-        swipeLabel.center = CGPoint(x: view.bounds.width / 2 + labelPoint.x, y: view.bounds.height / 2 + labelPoint.y)
+        matchImageView.center = CGPoint(x: view.bounds.width / 2 + labelPoint.x, y: view.bounds.height / 2 + labelPoint.y)
         
-        let xFromCenter = view.bounds.width / 2 - swipeLabel.center.x
+        let xFromCenter = view.bounds.width / 2 - matchImageView.center.x
         
         var rotation = CGAffineTransform(rotationAngle: xFromCenter / 200)
         
@@ -31,21 +39,81 @@ class ViewController: UIViewController {
         
         var scaledAndRotated = rotation.scaledBy(x: scale, y: scale)
         
-        swipeLabel.transform = scaledAndRotated
+        matchImageView.transform = scaledAndRotated
         
         if gestureRecognizer.state == .ended {
-            if swipeLabel.center.x < view.bounds.width / 2 - 100 {
+            
+            var acceptedOrRejected = ""
+            
+            if matchImageView.center.x < view.bounds.width / 2 - 100 {
                 print("Not Interested")
-            } else if swipeLabel.center.x > view.bounds.width / 2 + 100 {
+                acceptedOrRejected = "rejected"
+            } else if matchImageView.center.x > view.bounds.width / 2 + 100 {
                 print("Interested")
+                acceptedOrRejected = "accepted"
+            }
+            
+            if acceptedOrRejected != "" && displayUserId != "" {
+                PFUser.current()?.addUniqueObject(displayUserId, forKey: acceptedOrRejected)
+                
+                PFUser.current()?.saveInBackground(block: { (success, error) in
+                    if success {
+                        self.updateImage()
+                    }
+                })
             }
             
             rotation = CGAffineTransform(rotationAngle: 0)
             scaledAndRotated = rotation.scaledBy(x: 1, y: 1)
-            swipeLabel.transform = scaledAndRotated
+            matchImageView.transform = scaledAndRotated
             // make label back to center position
-            swipeLabel.center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
+            matchImageView.center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 2)
             
+        }
+    }
+    
+    func updateImage() {
+        if let query = PFUser.query() {
+            
+            if let isInterested = PFUser.current()?["isInterested"] {
+                query.whereKey("isFemale", equalTo: isInterested)
+            }
+            
+            if let isFemale = PFUser.current()?["isFemale"] {
+                query.whereKey("isInterested", equalTo: isFemale)
+            }
+            
+            var ignoredUsers : [String] = []
+            
+            if let acceptedUsers = PFUser.current()?["accepted"] as? [String] {
+                ignoredUsers += acceptedUsers
+            }
+            
+            if let rejectedUsers = PFUser.current()?["rejected"] as? [String] {
+                ignoredUsers += rejectedUsers
+            }
+            
+            query.whereKey("objectId", notContainedIn: ignoredUsers)
+            
+            query.limit = 1
+            query.findObjectsInBackground { (objects, error) in
+                if let users = objects {
+                    for object in users {
+                        if let user = object as? PFUser {
+                            if let imageFile = user["photo"] as? PFFileObject {
+                                imageFile.getDataInBackground(block: { (data, error) in
+                                    if let imageData = data {
+                                        self.matchImageView.image = UIImage(data: imageData)
+                                        if let objectId = object.objectId {
+                                            self.displayUserId = objectId
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

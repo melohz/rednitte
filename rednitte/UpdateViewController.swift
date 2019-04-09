@@ -114,7 +114,8 @@ class UpdateViewController: UIViewController, UINavigationControllerDelegate, UI
                     self.errorLabel.isHidden = false
                     self.errorLabel.text = errorMessage
                 } else {
-                    print("Sign Up Successful")
+                    print("Update Successful")
+                    self.performSegue(withIdentifier: "updateToSwipeSegue", sender: nil)
                 }
             })
         }
