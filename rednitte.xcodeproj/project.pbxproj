@@ -10,6 +10,8 @@
 		5CA8E440225C456C007FA308 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8E43F225C456C007FA308 /* LoginViewController.swift */; };
 		5CA8E442225C4E07007FA308 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA8E441225C4E07007FA308 /* user.png */; };
 		5CA8E444225CAA62007FA308 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8E443225CAA62007FA308 /* UpdateViewController.swift */; };
+		5CA8E446225CE89B007FA308 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8E445225CE89B007FA308 /* MatchesViewController.swift */; };
+		5CA8E448225CEDCE007FA308 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA8E447225CEDCE007FA308 /* MatchTableViewCell.swift */; };
 		5CFF4F9F225C1AB500BCA56A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF4F9E225C1AB500BCA56A /* AppDelegate.swift */; };
 		5CFF4FA1225C1AB500BCA56A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF4FA0225C1AB500BCA56A /* ViewController.swift */; };
 		5CFF4FA4225C1AB500BCA56A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFF4FA2225C1AB500BCA56A /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 		5CA8E43F225C456C007FA308 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5CA8E441225C4E07007FA308 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		5CA8E443225CAA62007FA308 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
+		5CA8E445225CE89B007FA308 /* MatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
+		5CA8E447225CEDCE007FA308 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		5CFF4F9B225C1AB500BCA56A /* rednitte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rednitte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFF4F9E225C1AB500BCA56A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CFF4FA0225C1AB500BCA56A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				5CFF4F9E225C1AB500BCA56A /* AppDelegate.swift */,
 				5CFF4FA0225C1AB500BCA56A /* ViewController.swift */,
 				5CFF4FA2225C1AB500BCA56A /* Main.storyboard */,
+				5CA8E447225CEDCE007FA308 /* MatchTableViewCell.swift */,
+				5CA8E445225CE89B007FA308 /* MatchesViewController.swift */,
 				5CA8E443225CAA62007FA308 /* UpdateViewController.swift */,
 				5CA8E43F225C456C007FA308 /* LoginViewController.swift */,
 				5CA8E441225C4E07007FA308 /* user.png */,
@@ -334,7 +340,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CA8E440225C456C007FA308 /* LoginViewController.swift in Sources */,
+				5CA8E448225CEDCE007FA308 /* MatchTableViewCell.swift in Sources */,
 				5CFF4FA1225C1AB500BCA56A /* ViewController.swift in Sources */,
+				5CA8E446225CE89B007FA308 /* MatchesViewController.swift in Sources */,
 				5CFF4F9F225C1AB500BCA56A /* AppDelegate.swift in Sources */,
 				5CA8E444225CAA62007FA308 /* UpdateViewController.swift in Sources */,
 			);
